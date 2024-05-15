@@ -100,6 +100,12 @@ body {
   position: relative;
   overflow: hidden; /* Taşan içerikleri gizleme */
 }
+.slideshow-container:hover .custom-next-arrow ,
+.slideshow-container:hover .custom-prev-arrow {
+  display: block;
+  margin: 2rem 2rem;
+}
+
 
 .slide {
   float: left; /* Resimlerin yan yana dizilmesini sağlar */
@@ -617,8 +623,34 @@ video {
 .gallery-container:hover .custom-prev-arrow {
   display: block;
 }
+/* Feature */
+.icons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ikonlarin altinda metinlerin olmasi icin */
+  margin: 5rem 5rem ;
+}
 
-/* sıkça sorulan sorular */
+.icon-with-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem ; /* Ikonlarin altina bosluk eklemek icin */
+}
+
+.icon {
+  font-size: 40px; /* Ikon boyutunu buyutmek icin */
+  margin-right: 10px;
+}
+
+.label {
+  margin-top: 10px;
+  font-size: 16px; /* Metin boyutunu ayarlamak icin */
+}
+
+/* Questions */
 
 .questions-container {
   display: block; /* Yatay hizalama */
@@ -793,4 +825,120 @@ flex-direction: column;
 .Blog .blog-text h2{
   font-weight: 900 !important;
   font-size: 1.5rem !important;
+}
+
+/* Query.jsx */
+.flex{
+  display: flex;
+  grid-column-gap: 20px;
+  justify-content: center;
+  
+}
+.border{
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+.btn-container {
+  display: flex;
+  justify-content: center;
+  background-color:#0fa105;
+  color: whitesmoke;
+  border-radius: 50px;
+}
+
+.btn {
+  padding: 10px 20px;
+  font-weight: bold;  
+}
+
+.cart-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 330px; /* veya istediğiniz genişlik */
+  z-index: 1000;
+  overflow-y: auto;
+  background-color: white;
+  width: 80%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+
+
+}
+
+.cart-modal-content {
+  padding: 20px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-divider {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-top: 1px solid #3f3e3e;
+}
+
+.cart-link:hover {
+  background-color: darkgreen;
+}
+.cart-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px; /* veya istediğiniz genişlik */
+  background-color: rgb(243, 245, 243); /* Arka plan rengi */
+  padding: 20px;
+  z-index: 9999;
+  overflow-y: auto;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-divider {
+  border: none;
+  border-top: 1px solid #fff;
+  margin: 10px 0;
+}
+
+.cart-items {
+  margin-top: 10px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.go-to-cart-button {
+  background-color: #00bc1f;
+  color: #000;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+ height:20%;
 }

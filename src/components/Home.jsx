@@ -9,8 +9,10 @@ import Slicktrack from "./Slicktrack";
 import { questions } from "./Questions";
 import { products } from "./ProductsData";
 import Promo from "./Promo";
+import Feature from "./Feature";
 
 const Home = () => {
+  
   return (
     <div className="Home">
       <Promo/>
@@ -22,7 +24,9 @@ const Home = () => {
       <ProductList products={products} />
       <Slider images={images5} />
       <Slicktrack images={images7} />
+      <Feature/>
       <CursorPointer questions={questions} />
+      
     </div>
   );
 };

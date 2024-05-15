@@ -4,19 +4,24 @@ import './index.css';
 import Template from './components/Template';
 import Home from "./components/Home";
 import Blog from './components/Blog';
+import Query from './components/Query';
 import PageNotFound from './components/PageNotFound';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Products from './components/Products';
+import Contact from './components/Contact';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
   <Routes>
   <Route path="/" element={<Template/>}>
-  <Route path="/" element={<Home/>}/>
-  <Route path="/blog" element={<Blog/>}/>
+  <Route index element={<Home/>}/>
+  <Route path="blog" element={<Blog/>}/>
+  <Route path="zadelife" element={<Products/>}/>
+  <Route path="contact" element={<Contact/>}/>
+  <Route path='siparis-sorgulama' element={<Query/>}/>
   <Route path="*" element={<PageNotFound/>} />
-  <Route path="/zadelife" element={<Products/>}/>
   </Route>  
   </Routes>
 </BrowserRouter>

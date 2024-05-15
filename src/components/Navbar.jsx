@@ -6,10 +6,20 @@ import {
   FaUser,
   FaSearch,
 } from "react-icons/fa";
+import ShoppingCartModal from "./ShoppingCartModal";
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const openCartModal = () => {
+    setCartOpen(true);
+  };
+
+  const closeCartModal = () => {
+    setCartOpen(false);
+  };
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -18,9 +28,9 @@ const Navbar = () => {
     { title: "Anasayfa", href: "/" },
     { title: "Zadelife Blog", href: "/blog" },
     { title: "Zadelife Ürünleri", href: "/zadelife" },
-    { title: "Sipariş Sorgulama", href: "#" },
+    { title: "Sipariş Sorgulama", href: "/siparis-sorgulama" },
     { title: "Sertifikalarımız", href: "#" },
-    { title: "İletişim", href: "#Contact" },
+    { title: "İletişim", href: "/contact" },
   ];
   useEffect(() => {
     const handleScroll = () => setIsFixed(window.scrollY > 45);
@@ -71,9 +81,11 @@ const Navbar = () => {
         <div className="icons">
           <FaSearch style={{ fontSize: "23px" }} />
           <FaUser style={{ fontSize: "23px" }} />
-          <FaShoppingCart style={{ fontSize: "23px" }} />
+          <FaShoppingCart style={{ fontSize: "23px" }} onClick={openCartModal} />
         </div>
       </div>
+      {cartOpen && <ShoppingCartModal onClose={closeCartModal} />}
+
     </div>
   );
 };

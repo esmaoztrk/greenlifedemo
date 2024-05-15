@@ -4,23 +4,23 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 
-const CustomPrevArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <div className={`${className} custom-prev-arrow`}  style={{ ...style, display: 'block', position: 'absolute', top: '50%', left: '10px', zIndex: 1 }} onClick={onClick}>
-      <FaArrowLeft />
-    </div>
-  );
-};
+ const CustomPrevArrow = (props) => {
+    const { style, onClick } = props;
+    return (
+      <div className="custom-prev-arrow" onClick={onClick}>
+        <FaArrowLeft />
+      </div>
+    );
+  };
 
-const CustomNextArrow = (props) => {
-  const { className, style, onClick } = props;
-  return (
-    <div className={`${className} custom-next-arrow`} style={{ ...style, display: 'block', position: 'absolute', top: '50%', right: '10px', zIndex: 1 }} onClick={onClick}>
-      <FaArrowRight />
-    </div>
-  );
-};
+  const CustomNextArrow = (props) => {
+    const { style, onClick } = props;
+    return (
+      <div className="custom-next-arrow" onClick={onClick}>
+        <FaArrowRight />
+      </div>
+    );
+  };
 
 
 const Slideshow = ({images}) => {
@@ -28,7 +28,7 @@ const Slideshow = ({images}) => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 1000,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,

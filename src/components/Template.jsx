@@ -5,10 +5,10 @@ import Footer from "./Footer";
 const Template = () => {
   return (
     <div>
-      <Header/>
+      <Header />
+      <Outlet />
       <div className="footer-container-bottom">
-        <Outlet/>   
-        <Footer />    
+        <Footer />
       </div>
     </div>
   );

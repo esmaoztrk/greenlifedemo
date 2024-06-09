@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaBars,
   FaTimes,
@@ -6,13 +6,15 @@ import {
   FaUser,
   FaSearch,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import ShoppingCartModal from "./ShoppingCartModal";
-
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const navigate = useNavigate();
+
   const openCartModal = () => {
     setCartOpen(true);
   };
@@ -24,6 +26,19 @@ const Navbar = () => {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  const handleUserIconClick = () => {
+    navigate("/account/login");
+  };
+
+  const handleLoginClick = () => {
+    navigate("/account/login");
+  };
+
+  const handleRegisterClick = () => {
+    navigate("/account/register");
+  };
+
   const menuItems = [
     { title: "Anasayfa", href: "/" },
     { title: "Zadelife Blog", href: "/blog" },
@@ -32,13 +47,15 @@ const Navbar = () => {
     { title: "Sertifikalarımız", href: "#" },
     { title: "İletişim", href: "/contact" },
   ];
+
   useEffect(() => {
     const handleScroll = () => setIsFixed(window.scrollY > 45);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
-    <div className={`header2 ${isFixed ? 'fixed' : ''} ${isFixed ? 'rotate' : ''}` }>
+    <div className={`header2 ${isFixed ? "fixed" : ""} ${isFixed ? "rotate" : ""}`}>
       <div className="user-actions">
         <div className="menu-icon" onClick={toggleMenu}>
           <FaBars />
@@ -49,10 +66,10 @@ const Navbar = () => {
         >
           <div className={`menu ${menuOpen ? "show" : ""}`}>
             <div className="baslik">
-              <FaTimes />
-              <a href="#">Giriş Yap</a>
-              <a href="#">|</a>
-              <a href="#">Kayıt Ol</a>
+              <FaTimes onClick={toggleMenu} />
+              <a onClick={handleLoginClick}>Üye Girişi</a>
+              <a>|</a>
+              <a onClick={handleRegisterClick}>Üye Ol</a>
               <FaShoppingCart />
             </div>
             <hr />
@@ -64,28 +81,26 @@ const Navbar = () => {
           </div>
         </div>
         <div className="logo">
-          <img src="./images/logo.jpg" alt="" />
+          <img src="./logo.jpg" alt="logo" />
         </div>
       </div>
       <div className="user-text">
         <div className="menu-text">
-          {/* Burada yazılar menü açıldığında da görünecek */}
           {menuItems.map((item, index) => (
-              <a key={index} href={item.href}>
-                {item.title}
-              </a>
-            ))}
+            <a key={index} href={item.href}>
+              {item.title}
+            </a>
+          ))}
         </div>
       </div>
       <div className="user-icons">
         <div className="icons">
           <FaSearch style={{ fontSize: "23px" }} />
-          <FaUser style={{ fontSize: "23px" }} />
+          <FaUser style={{ fontSize: "23px" }} onClick={handleUserIconClick} />
           <FaShoppingCart style={{ fontSize: "23px" }} onClick={openCartModal} />
         </div>
       </div>
       {cartOpen && <ShoppingCartModal onClose={closeCartModal} />}
-
     </div>
   );
 };

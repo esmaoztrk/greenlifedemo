@@ -9,6 +9,7 @@ import PageNotFound from './components/PageNotFound';
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Products from './components/Products';
 import Contact from './components/Contact';
+import AuthPage from './components/AuthPage';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -21,6 +22,8 @@ root.render(
   <Route path="zadelife" element={<Products/>}/>
   <Route path="contact" element={<Contact/>}/>
   <Route path='siparis-sorgulama' element={<Query/>}/>
+  <Route path="account/login" element={<AuthPage type="login" />} />
+  <Route path="account/register" element={<AuthPage type="register" />} />
   <Route path="*" element={<PageNotFound/>} />
   </Route>  
   </Routes>
